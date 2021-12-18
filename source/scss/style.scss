@@ -1,30 +1,7 @@
-// Подключение шрифтов
-
 // Файл обнуляющих стилей
 @import "_nullstyle";
 
-// ПЕРЕМЕННЫЕ
-// $fontfamily: "PT Sans";
-// $minwidth: 320px;
-// $mw: 880;
-// $md1: $mw + 12;
-// // $md2: 992.98;
-// $md2: 767.98;
-// $md3: 767.98;
-// $md4: 479.98;
-
-// Шаблоны
-%for_el_content {
-	padding: 50px 0px;
-}
-
-// Миксины
-@mixin marg_bot($bot) {
-	margin: 0px 0px $bot 0px;
-}
-
 body {
-	// font-family: $fontfamily;
 	height: 100%;
 	line-height: 1;
 	font-size: 14px;
@@ -43,7 +20,6 @@ body {
 }
 // ОСНОВНАЯ СЕТКА
 ._container {
-	// max-width: $mw + px;
 	max-width: 1046px;
 	padding: 0px 15px; //! это отступы безопасности
 	margin: 0px auto; //! позволяет контейнеру выстроиться посередине
@@ -127,7 +103,7 @@ body {
 //===== main-block ===============
 
 .main-block {
-	position: relative; //! для абсолютной картинки-фона main-block__background
+	position: relative;
 }
 
 .main-block__container {
@@ -209,7 +185,6 @@ body {
 	letter-spacing: 0.2px;
 
 	transition: background 0.3s ease 0s;
-	// transition: all 0.3s ease 0s;  //! так оранжевая кнопка скачет. Видимо, из-за того, что я сменила размер при ховере
 
 	@media (min-width: 601px) {
 		&:not(:last-child) {
@@ -235,7 +210,7 @@ body {
 
 	&:hover {
 		border: 1px solid #ff7b47;
-		padding: 5px 35px; //! отняла границу, которая появляется при hover, иначе видна разница
+		padding: 5px 35px; //! отняла границу, которая появляется при hover
 		background: none;
 		color: #ff7b47;
 	}
@@ -354,19 +329,7 @@ body {
 .item-service__icon {
 	min-height: 48px;
 }
-//! Так не сработало! Не тот цвет! Источник: стаковерфлоу
-/* Получилось, используя следующую схему: Сначала перевел rgb в hsl.
-Потом подставил значения в формулу 
-hue-rotate = h - 38 saturate = 100 + (24.5 - s) brightness = 100 + (l - 60.0)
-filter: brightness(50%) sepia(1) hue-rotate(hue-rotate) saturate(saturate%) brightness(brightness%);
-*/
-//! hsl(185,77%,22%)
-//! hue-rotate = 185 - 38 = 147
-//! saturate = 100 + (24.5 - 77) = 47.5
-//! brightness = 100 + (22 - 60.0) = 62
-//! filter: brightness(50%) sepia(1) hue-rotate(147deg) saturate(47.5%) brightness(62%);
 
-//! В ИТОГЕ ОТКРЫЛА КАРТИНКУ В SUBLIME TEXT И В КОДЕ КАРТИНКИ ПОМЕНЯЛА ЦВЕТ
 .item-service__icon_1 {
 	background-image: url(/img/services/icon_01.svg);
 	background-repeat: no-repeat;
@@ -429,7 +392,7 @@ filter: brightness(50%) sepia(1) hue-rotate(hue-rotate) saturate(saturate%) brig
 .advantages__row {
 	display: flex;
 	margin: 0px -15px;
-	margin-bottom: -5px; //! в сочетании с нижним марджином для advantages__column даёт отступ тогда, когда происходит wrap, без нижнего, а только между
+	margin-bottom: -5px;
 
 	@media (max-width: 900px) {
 		flex-wrap: wrap;
@@ -450,7 +413,7 @@ filter: brightness(50%) sepia(1) hue-rotate(hue-rotate) saturate(saturate%) brig
 	padding: 0px 15px;
 	flex: 0 1 25%;
 
-	margin: 0px 0px 5px 0px; //! в сочетании с нижним отриц. марджином для advantages__row даёт только тогда, когда происходит wrap, без нижнего, а только между
+	margin: 0px 0px 5px 0px;
 }
 
 .advantages__item {
@@ -561,7 +524,7 @@ filter: brightness(50%) sepia(1) hue-rotate(hue-rotate) saturate(saturate%) brig
 .practice__column {
 	flex: 0 1 25%;
 	padding: 0px 20px;
-	margin-bottom: 15px; //! в сочетании с margin-bottom: -15px; для practice__row даёт отступы между карточками при врапе, но без нижнего
+	margin-bottom: 15px;
 
 	@media (max-width: 900px) {
 		flex: 0 1 50%;
@@ -620,7 +583,7 @@ filter: brightness(50%) sepia(1) hue-rotate(hue-rotate) saturate(saturate%) brig
 
 .item-practice__image {
 	display: block;
-	cursor: pointer; //! эти картинки сделаны ссылками, поэтому сделала так, чтобы появлялась рука при наведении
+	cursor: pointer;
 
 	padding: 0px 0px 60% 0px; //! это нужно, чтобы была видна картинка, т.к. она у нас абсолютная
 	//! размеры картинки 230х138. Сделали 138 / 230 * 100% = 60%
@@ -665,8 +628,6 @@ filter: brightness(50%) sepia(1) hue-rotate(hue-rotate) saturate(saturate%) brig
 .whoweare__video {
 	flex: 0 0 57.36%; //! 600px д.б. ширина видео - делим на 1046рх ширину контейнера
 	padding: 0px 0px 42.26% 0px; //! 442px д.б. высота видео - делим на 1046рх ширину флекс-контейнера
-	//! Женя сначала делил на 600рх, т.е. на ширину самого элемента, но тут нужно - на ширину флекс-контейнера
-	//! Нужно делать паддинг, т.к. видео делаем абсолютным
 
 	position: relative;
 
@@ -796,7 +757,6 @@ filter: brightness(50%) sepia(1) hue-rotate(hue-rotate) saturate(saturate%) brig
 	width: 230px;
 	text-overflow: ellipsis;
 	overflow: hidden;
-	//! Женя это просто показал так, через CSS, но это лучше и проще делать через бэкэнд
 }
 
 //====== clients ===========================================================================
@@ -829,12 +789,12 @@ filter: brightness(50%) sepia(1) hue-rotate(hue-rotate) saturate(saturate%) brig
 .clients__item {
 	flex: 0 1 16.667%;
 	padding: 0px 15px;
-	min-width: 150px; //! минимальный размер, а то иконки уменьшаются, а не врапятся после того, как дописали то, что ниже:
+	min-width: 150px;
 	img {
-		max-width: 100%; //! чтобы ничего не ломалось, если вдруг загрузят потом изображение большего размера
+		max-width: 100%;
 	}
 
-	margin-bottom: 20px; //! в сочетании с margin-bottom: -20px; для clients__row даёт отступы между иконками при врапе, но без нижнего
+	margin-bottom: 20px;
 
 	@media (max-width: 900px) {
 		flex: 0 1 33.333%;
@@ -853,7 +813,7 @@ filter: brightness(50%) sepia(1) hue-rotate(hue-rotate) saturate(saturate%) brig
 
 .subscribe {
 	position: relative;
-	padding-bottom: 20px; //! чтобы отодвинуться вверх от абсолютной полоски (after)
+	padding-bottom: 20px;
 
 	&:after {
 		content: "";
@@ -884,7 +844,7 @@ filter: brightness(50%) sepia(1) hue-rotate(hue-rotate) saturate(saturate%) brig
 	border-radius: 2px;
 
 	padding: 30px 40px 30px 50px;
-	margin: 20px 32px 0px 32px; //! не могу сделать нижний марджин, т.к. абсолютная полоска потянется вниз на ширину нижнего марждина
+	margin: 20px 32px 0px 32px;
 
 	@media (max-width: 900px) {
 		flex-wrap: wrap;
@@ -936,7 +896,7 @@ filter: brightness(50%) sepia(1) hue-rotate(hue-rotate) saturate(saturate%) brig
 
 .subscribe__input {
 	flex: 1 1 auto;
-	width: 100%; //! чтобы поле адаптировалось. Иначе при самом маленьком экране немного не влезает
+	width: 100%;
 	min-height: 58px;
 	background: #f9f9f9;
 	border: 1px solid #e6e6e6;
@@ -962,7 +922,7 @@ filter: brightness(50%) sepia(1) hue-rotate(hue-rotate) saturate(saturate%) brig
 	padding: 0px 22.5px;
 
 	transition: all 0.3s ease 0s;
-	cursor: pointer; //! на всякий случай - в хроме и так появляется рука над кнопкой
+	cursor: pointer;
 
 	&:hover {
 		background-color: darken(#ff7b47, 30%);
@@ -987,7 +947,7 @@ filter: brightness(50%) sepia(1) hue-rotate(hue-rotate) saturate(saturate%) brig
 }
 
 .getintouch__title-block {
-	margin: 0px 0px 110px 0px; //! 110px до белой карточки, 80рх до карточки при ховере
+	margin: 0px 0px 110px 0px;
 
 	@media (max-width: 1046px) {
 		margin: 0px 0px 60px 0px;
@@ -1028,7 +988,6 @@ filter: brightness(50%) sepia(1) hue-rotate(hue-rotate) saturate(saturate%) brig
 
 	display: flex;
 	flex-direction: column;
-	// align-items: center; //! с этими параметрами пропадает иконка-бэкграунд, а без них растягивается кнопка
 	justify-content: center;
 	text-align: center;
 
@@ -1117,7 +1076,6 @@ filter: brightness(50%) sepia(1) hue-rotate(hue-rotate) saturate(saturate%) brig
 }
 
 .item-getintouch__wrap-button {
-	//! пришлось сделать доп.оболочку, т.к. нельзя написать align-items: center; в item-getintouch
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -1138,10 +1096,10 @@ filter: brightness(50%) sepia(1) hue-rotate(hue-rotate) saturate(saturate%) brig
 	border-radius: 5px;
 
 	min-height: 44px;
-	padding: 5px 20px; //! 5px- отступы безопасности
+	padding: 5px 20px; //! 5px - отступы безопасности
 
 	transition: all 0.3s ease 0s;
-	cursor: pointer; //! на всякий случай - в хроме и так появляется рука над кнопкой
+	cursor: pointer;
 
 	&:hover {
 		background-color: #ff7b47;
@@ -1167,13 +1125,11 @@ filter: brightness(50%) sepia(1) hue-rotate(hue-rotate) saturate(saturate%) brig
 		flex-direction: column;
 		text-align: center;
 
-		margin: 0px 72px; //! чтобы кнопка была такой же ширины, как и ФОРМА subscribe
+		margin: 0px 72px;
 	}
 
 	@media (max-width: 600px) {
-		margin: 0px 30px; //! чтобы кнопка была такой же ширины, как и ФОРМА subscribe
-		// padding: 30px 30px 30px 30px;
-		// margin: 20px 0px 0px 0px;
+		margin: 0px 30px;
 	}
 }
 
@@ -1237,8 +1193,6 @@ filter: brightness(50%) sepia(1) hue-rotate(hue-rotate) saturate(saturate%) brig
 .contact__link {
 	color: inherit;
 }
-
-//====  ================================================================================
 
 //================================================================================================
 
