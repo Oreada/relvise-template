@@ -1,0 +1,1246 @@
+// Подключение шрифтов
+
+// Файл обнуляющих стилей
+@import "_nullstyle";
+
+// ПЕРЕМЕННЫЕ
+// $fontfamily: "PT Sans";
+// $minwidth: 320px;
+// $mw: 880;
+// $md1: $mw + 12;
+// // $md2: 992.98;
+// $md2: 767.98;
+// $md3: 767.98;
+// $md4: 479.98;
+
+// Шаблоны
+%for_el_content {
+	padding: 50px 0px;
+}
+
+// Миксины
+@mixin marg_bot($bot) {
+	margin: 0px 0px $bot 0px;
+}
+
+body {
+	// font-family: $fontfamily;
+	height: 100%;
+	line-height: 1;
+	font-size: 14px;
+	font-weight: 500;
+	color: #252b42;
+	font-family: Montserrat;
+	background: #fafafa;
+}
+// ОБОЛОЧКА
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+// ОСНОВНАЯ СЕТКА
+._container {
+	// max-width: $mw + px;
+	max-width: 1046px;
+	padding: 0px 15px; //! это отступы безопасности
+	margin: 0px auto; //! позволяет контейнеру выстроиться посередине
+	box-sizing: content-box;
+	//! Переключили контейнер с border-box на content-box после добавления паддинга, чтобы паддинг не считался частью max-width
+}
+
+._ibg {
+	position: relative;
+
+	img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+	}
+}
+//================================================================================================
+
+// Подключение header
+@import "_header";
+
+//================================================================================================
+
+// ОСНОВНОЙ БЛОК: CONTENT
+
+//================================================================================================
+
+.page {
+	flex: 1 1 auto;
+}
+.page__main-block {
+}
+.page__services {
+}
+.page__advantages {
+}
+.page__practice {
+}
+.page__whoweare {
+}
+.page__clients {
+}
+.page__subscribe {
+}
+.page__getintouch {
+}
+.page__contact {
+}
+
+.title-block {
+	padding: 0px 10px; //! отступы безопасности
+}
+.title-block__top {
+	font-weight: 700;
+	font-size: 40px;
+	line-height: calc(57 / 40 * 100%);
+	letter-spacing: 0.2px;
+	text-align: center;
+
+	&:not(:last-child) {
+		margin: 0px 0px 10px 0px;
+	}
+
+	@media (max-width: 767px) {
+		font-size: 35px;
+	}
+
+	@media (max-width: 600px) {
+		font-size: 30px;
+	}
+}
+.title-block__bottom {
+	color: #737373;
+	line-height: calc(20 / 14 * 100%);
+	letter-spacing: 0.2px;
+	text-align: center;
+}
+//===== main-block ===============
+
+.main-block {
+	position: relative; //! для абсолютной картинки-фона main-block__background
+}
+
+.main-block__container {
+}
+
+.main-block__body {
+	max-width: 400px;
+	padding: 184px 0px 191px 0px;
+	position: relative;
+	z-index: 5;
+
+	@media (max-width: 767px) {
+		padding: 150px 0px 170px 0px;
+	}
+
+	@media (max-width: 600px) {
+		max-width: 270px;
+	}
+
+	@media (max-width: 479px) {
+		max-width: 100%;
+	}
+}
+
+.main-block__title {
+	font-weight: 800;
+	font-size: 58px;
+	line-height: calc(80 / 58 * 100%);
+	letter-spacing: 0.2px;
+
+	&:not(:last-child) {
+		margin: 0px 0px 35px 0px;
+	}
+
+	@media (max-width: 767px) {
+		font-size: 50px;
+	}
+
+	@media (max-width: 600px) {
+		font-size: 40px;
+	}
+}
+
+.main-block__text {
+	font-size: 20px;
+	line-height: calc(30 / 20 * 100%);
+	letter-spacing: 0.2px;
+	color: #737373;
+
+	&:not(:last-child) {
+		margin: 0px 0px 35px 0px;
+	}
+
+	@media (max-width: 1070px) {
+		color: darken(#737373, 20%);
+	}
+
+	@media (max-width: 479px) {
+		color: #737373;
+	}
+}
+
+.main-block__buttons {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.main-block__button {
+	min-height: 48px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 5px 36px; //! 5px- отступы безопасности
+	border-radius: 37px;
+
+	font-weight: 700;
+	line-height: calc(28 / 14 * 100%);
+	letter-spacing: 0.2px;
+
+	transition: background 0.3s ease 0s;
+	// transition: all 0.3s ease 0s;  //! так оранжевая кнопка скачет. Видимо, из-за того, что я сменила размер при ховере
+
+	@media (min-width: 601px) {
+		&:not(:last-child) {
+			margin: 0px 10px 0px 0px;
+		}
+	}
+
+	@media (max-width: 600px) {
+		flex: 1 1 auto;
+		&:not(:last-child) {
+			margin: 0px 0px 15px 0px;
+		}
+	}
+
+	@media (max-width: 479px) {
+		flex: 1 1 100%;
+	}
+}
+
+.main-block__button_orange {
+	background: #ff7b47;
+	color: #ffffff;
+
+	&:hover {
+		border: 1px solid #ff7b47;
+		padding: 5px 35px; //! отняла границу, которая появляется при hover, иначе видна разница
+		background: none;
+		color: #ff7b47;
+	}
+}
+
+.main-block__button_green {
+	border: 1px solid #0d5c63;
+	color: #0d5c63;
+
+	&:hover {
+		background: #0d5c63;
+		color: #ffffff;
+	}
+}
+
+.main-block__background {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+
+	img {
+		object-position: right;
+
+		@media (max-width: 1070px) {
+			opacity: 0.5;
+		}
+
+		@media (max-width: 479px) {
+			display: none;
+		}
+	}
+}
+
+//======== services =============================================================================
+
+.services {
+	position: relative;
+	z-index: 2;
+	margin: -111px 0px 0px 0px;
+}
+
+.services__container {
+}
+
+.services__row {
+	display: flex;
+	justify-content: center;
+	margin: 0px -15px;
+
+	@media (max-width: 900px) {
+		flex-wrap: wrap;
+	}
+}
+
+.services__column {
+	flex: 0 1 33.333%;
+	padding: 0px 15px;
+
+	@media (max-width: 900px) {
+		flex: 0 1 50%;
+
+		&:not(:last-child) {
+			margin-bottom: 30px;
+		}
+	}
+
+	@media (max-width: 600px) {
+		flex: 1 1 auto;
+	}
+}
+
+.services__item {
+}
+
+.item-service {
+	background: #ffffff;
+	box-shadow: 0px 13px 19px rgba(0, 0, 0, 0.07);
+	padding: 35px 40px;
+	height: 100%;
+
+	transition: background 0.3s ease 0s;
+
+	& > *:not(:last-child) {
+		margin: 0px 0px 10px 0px;
+	}
+
+	@media (max-width: 1020px) {
+		padding: 20px 30px;
+	}
+
+	&:hover {
+		background: #0d5c63;
+		box-shadow: 0px 13px 19px rgba(0, 0, 0, 0.07);
+		color: #ffffff;
+
+		.item-service__text {
+			color: #ffffff;
+		}
+
+		.item-service__icon_1 {
+			background-image: url(/img/services/icon_01_w.svg);
+		}
+
+		.item-service__icon_2 {
+			background-image: url(/img/services/icon_02_w.svg);
+		}
+
+		.item-service__icon_3 {
+			background-image: url(/img/services/icon_03_w.svg);
+		}
+	}
+}
+
+.item-service__icon {
+	min-height: 48px;
+}
+//! Так не сработало! Не тот цвет! Источник: стаковерфлоу
+/* Получилось, используя следующую схему: Сначала перевел rgb в hsl.
+Потом подставил значения в формулу 
+hue-rotate = h - 38 saturate = 100 + (24.5 - s) brightness = 100 + (l - 60.0)
+filter: brightness(50%) sepia(1) hue-rotate(hue-rotate) saturate(saturate%) brightness(brightness%);
+*/
+//! hsl(185,77%,22%)
+//! hue-rotate = 185 - 38 = 147
+//! saturate = 100 + (24.5 - 77) = 47.5
+//! brightness = 100 + (22 - 60.0) = 62
+//! filter: brightness(50%) sepia(1) hue-rotate(147deg) saturate(47.5%) brightness(62%);
+
+//! В ИТОГЕ ОТКРЫЛА КАРТИНКУ В SUBLIME TEXT И В КОДЕ КАРТИНКИ ПОМЕНЯЛА ЦВЕТ
+.item-service__icon_1 {
+	background-image: url(/img/services/icon_01.svg);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+
+.item-service__icon_2 {
+	background-image: url(/img/services/icon_02.svg);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+
+.item-service__icon_3 {
+	background-image: url(/img/services/icon_03.svg);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+
+.item-service__title {
+	font-weight: 700;
+	font-size: 24px;
+	line-height: calc(32 / 24 * 100%);
+	letter-spacing: 0.1px;
+
+	@media (max-width: 1020px) {
+		font-size: 20px;
+	}
+}
+
+.item-service__text {
+	line-height: calc(20 / 14 * 100%);
+	letter-spacing: 0.2px;
+	color: #737373;
+}
+
+//======== advantages =============================================================================
+
+.advantages {
+	padding: 80px 0px;
+
+	@media (max-width: 479px) {
+		padding: 60px 0px;
+	}
+}
+
+.advantages__container {
+}
+
+.advantages__body {
+}
+
+.advantages__title-block {
+	margin: 0px 0px 50px 0px;
+
+	@media (max-width: 479px) {
+		margin: 0px 0px 30px 0px;
+	}
+}
+
+.advantages__row {
+	display: flex;
+	margin: 0px -15px;
+	margin-bottom: -5px; //! в сочетании с нижним марджином для advantages__column даёт отступ тогда, когда происходит wrap, без нижнего, а только между
+
+	@media (max-width: 900px) {
+		flex-wrap: wrap;
+
+		.advantages__column {
+			flex: 0 1 50%;
+		}
+	}
+
+	@media (max-width: 479px) {
+		.advantages__column {
+			flex: 1 1 100%;
+		}
+	}
+}
+
+.advantages__column {
+	padding: 0px 15px;
+	flex: 0 1 25%;
+
+	margin: 0px 0px 5px 0px; //! в сочетании с нижним отриц. марджином для advantages__row даёт только тогда, когда происходит wrap, без нижнего, а только между
+}
+
+.advantages__item {
+	background: #ffffff;
+	padding: 30px;
+	height: 100%;
+
+	@media (max-width: 479px) {
+		padding: 10px;
+	}
+}
+
+.item-advantage {
+	text-align: center;
+	& > *:not(:last-child) {
+		margin: 0px 0px 10px 0px;
+	}
+
+	@media (max-width: 479px) {
+		& > *:not(:last-child) {
+			margin: 0px 0px 5px 0px;
+		}
+	}
+}
+
+.item-advantage__icon {
+	min-height: 48px;
+}
+
+.item-advantage__icon_consumer {
+	background-image: url(/img/advantages/icon_consumer.svg);
+	background-repeat: no-repeat;
+	background-position: 50% 0;
+}
+
+.item-advantage__icon_financial {
+	background-image: url(/img/advantages/icon_financial.svg);
+	background-repeat: no-repeat;
+	background-position: 50% 0;
+}
+
+.item-advantage__icon_environmental {
+	background-image: url(/img/advantages/icon_environmental.svg);
+	background-repeat: no-repeat;
+	background-position: 50% 0;
+}
+
+.item-advantage__icon_business {
+	background-image: url(/img/advantages/icon_business.svg);
+	background-repeat: no-repeat;
+	background-position: 50% 0;
+}
+
+.item-advantage__number {
+	font-weight: 700;
+	font-size: 40px;
+	line-height: calc(57 / 40 * 100%);
+	letter-spacing: 0.2px;
+
+	@media (max-width: 600px) {
+		font-size: 30px;
+	}
+}
+
+.item-advantage__text {
+	color: #737373;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: calc(24 / 16 * 100%);
+	letter-spacing: 0.1px;
+}
+
+//===== practice ==========================================================================
+
+.practice {
+	padding: 125px 0px 80px 0px;
+
+	@media (max-width: 1046px) {
+		padding: 0px 0px 80px 0px;
+	}
+}
+
+.practice__container {
+}
+
+.practice__body {
+}
+
+.practice__title-block {
+	margin: 0px 0px 45px 0px;
+
+	@media (max-width: 900px) {
+		margin: 0px 0px 30px 0px;
+	}
+}
+
+.practice__row {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0px -20px;
+	margin-bottom: -15px;
+
+	@media (max-width: 900px) {
+		margin: 0px -7.5px;
+	}
+}
+
+.practice__column {
+	flex: 0 1 25%;
+	padding: 0px 20px;
+	margin-bottom: 15px; //! в сочетании с margin-bottom: -15px; для practice__row даёт отступы между карточками при врапе, но без нижнего
+
+	@media (max-width: 900px) {
+		flex: 0 1 50%;
+		padding: 0px 7.5px;
+	}
+
+	@media (max-width: 500px) {
+		flex: 0 1 100%;
+	}
+}
+
+.practice__item {
+}
+
+.item-practice {
+	background: #ffffff;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.item-practice__words {
+	padding: 30px;
+	flex: 1 1 auto;
+
+	@media (max-width: 600px) {
+		padding: 20px;
+	}
+}
+
+.item-practice__link {
+	color: inherit;
+	display: inline-block;
+
+	&:not(:last-child) {
+		margin: 0px 0px 15px 0px;
+	}
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.item-practice__title {
+	font-weight: 700;
+	font-size: 16px;
+	line-height: calc(24 / 16 * 100%);
+	letter-spacing: 0.1px;
+}
+
+.item-practice__text {
+	color: #737373;
+	line-height: calc(20 / 14 * 100%);
+	letter-spacing: 0.2px;
+}
+
+.item-practice__image {
+	display: block;
+	cursor: pointer; //! эти картинки сделаны ссылками, поэтому сделала так, чтобы появлялась рука при наведении
+
+	padding: 0px 0px 60% 0px; //! это нужно, чтобы была видна картинка, т.к. она у нас абсолютная
+	//! размеры картинки 230х138. Сделали 138 / 230 * 100% = 60%
+}
+
+//======== whoweare ==========================================================================
+
+.whoweare {
+	padding: 100px 0px 136px 0px;
+
+	@media (max-width: 1046px) {
+		padding: 20px 0px 80px 0px;
+	}
+}
+
+.whoweare__container {
+}
+
+.whoweare__body {
+}
+
+.whoweare__title-block {
+	margin: 0px 0px 100px 0px;
+
+	@media (max-width: 1046px) {
+		margin: 0px 0px 60px 0px;
+	}
+
+	@media (max-width: 500px) {
+		margin: 0px 0px 40px 0px;
+	}
+}
+
+.whoweare__row {
+	display: flex;
+
+	@media (max-width: 900px) {
+		flex-direction: column;
+	}
+}
+
+.whoweare__video {
+	flex: 0 0 57.36%; //! 600px д.б. ширина видео - делим на 1046рх ширину контейнера
+	padding: 0px 0px 42.26% 0px; //! 442px д.б. высота видео - делим на 1046рх ширину флекс-контейнера
+	//! Женя сначала делил на 600рх, т.е. на ширину самого элемента, но тут нужно - на ширину флекс-контейнера
+	//! Нужно делать паддинг, т.к. видео делаем абсолютным
+
+	position: relative;
+
+	iframe {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+	}
+
+	@media (max-width: 900px) {
+		padding: 0px 0px 56.25% 0px; //! 315x560=56.25%. Взяла размеры видео с ютуба и сделала процент согласно этим размерам
+		margin-bottom: 40px;
+	}
+}
+
+.whoweare__words {
+	flex: 1 1 auto;
+
+	padding: 22px 0px 0px 120px;
+
+	@media (max-width: 1046px) {
+		padding: 0px 0px 0px 60px;
+	}
+
+	@media (max-width: 500px) {
+		padding: 0px 0px 0px 20px;
+	}
+}
+
+.whoweare__top {
+	margin: 0px 0px 50px 0px;
+
+	@media (max-width: 1046px) {
+		margin: 0px 0px 30px 0px;
+	}
+}
+
+.whoweare__subtitle {
+	font-weight: 700;
+	font-size: 40px;
+	line-height: calc(57 / 40 * 100%);
+	letter-spacing: 0.2px;
+
+	margin: 0px 0px 10px 0px;
+
+	@media (max-width: 1046px) {
+		font-size: 36px;
+	}
+
+	@media (max-width: 767px) {
+		font-size: 30px;
+	}
+
+	@media (max-width: 767px) {
+		font-size: 25px;
+	}
+}
+
+.whoweare__subtext {
+	color: #737373;
+	line-height: calc(20 / 14 * 100%);
+	letter-spacing: 0.2px;
+}
+
+.whoweare__bottom {
+}
+
+.whoweare__item {
+}
+
+.item-whoweare {
+	&:not(:last-child) {
+		margin: 0px 0px 30px 0px;
+
+		@media (max-width: 1046px) {
+			margin: 0px 0px 20px 0px;
+		}
+	}
+}
+
+.item-whoweare__content {
+	padding: 0px 0px 0px 52px;
+}
+
+.item-whoweare__content_people {
+	background-image: url(/img/whoweare/icon_people.svg);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	// не забыть задать высоту иконке
+}
+
+.item-whoweare__content_scale {
+	background-image: url(/img/whoweare/icon_scale.svg);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	// не забыть задать высоту иконке
+}
+
+.item-whoweare__content__link {
+	color: inherit;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+.item-whoweare__title {
+	font-weight: 700;
+	font-size: 16px;
+	line-height: calc(24 / 16 * 100%);
+	letter-spacing: 0.1px;
+
+	&:not(:last-child) {
+		margin: 0px 0px 5px 0px;
+	}
+}
+
+.item-whoweare__text {
+	color: #737373;
+	line-height: calc(24 / 14 * 100%);
+	letter-spacing: 0.2px;
+
+	//! запись ниже - для того, чтобы текст обрывался, как в макете (МНОГОТОЧИЕ):
+	white-space: nowrap;
+	width: 230px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	//! Женя это просто показал так, через CSS, но это лучше и проще делать через бэкэнд
+}
+
+//====== clients ===========================================================================
+
+.clients {
+}
+
+.clients__container {
+}
+
+.clients__row {
+	display: flex;
+	align-items: center;
+	text-align: center;
+
+	padding: 50px 0px;
+	margin: 0px -15px;
+
+	margin-bottom: -20px;
+
+	@media (max-width: 900px) {
+		flex-wrap: wrap;
+	}
+
+	@media (max-width: 500px) {
+		padding-top: 10px;
+	}
+}
+
+.clients__item {
+	flex: 0 1 16.667%;
+	padding: 0px 15px;
+	min-width: 150px; //! минимальный размер, а то иконки уменьшаются, а не врапятся после того, как дописали то, что ниже:
+	img {
+		max-width: 100%; //! чтобы ничего не ломалось, если вдруг загрузят потом изображение большего размера
+	}
+
+	margin-bottom: 20px; //! в сочетании с margin-bottom: -20px; для clients__row даёт отступы между иконками при врапе, но без нижнего
+
+	@media (max-width: 900px) {
+		flex: 0 1 33.333%;
+	}
+
+	@media (max-width: 500px) {
+		min-width: 120px;
+	}
+
+	@media (max-width: 400px) {
+		min-width: 100px;
+	}
+}
+
+//======= subscribe ==========================================================================
+
+.subscribe {
+	position: relative;
+	padding-bottom: 20px; //! чтобы отодвинуться вверх от абсолютной полоски (after)
+
+	&:after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		height: 77px;
+		width: 100%;
+		background: #252b42;
+
+		@media (max-width: 500px) {
+			content: none;
+		}
+	}
+}
+
+.subscribe__container {
+}
+
+.subscribe__row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	position: relative;
+	z-index: 2;
+
+	background: #17213c;
+	border-radius: 2px;
+
+	padding: 30px 40px 30px 50px;
+	margin: 20px 32px 0px 32px; //! не могу сделать нижний марджин, т.к. абсолютная полоска потянется вниз на ширину нижнего марждина
+
+	@media (max-width: 900px) {
+		flex-wrap: wrap;
+		padding: 30px 40px 30px 40px;
+	}
+
+	@media (max-width: 600px) {
+		padding: 30px 30px 30px 30px;
+		margin: 20px 0px 0px 0px;
+	}
+
+	@media (max-width: 500px) {
+		padding: 30px 15px 30px 15px;
+		margin: 20px -15px 0px -15px;
+	}
+}
+
+.subscribe__subtitle {
+	max-width: 270px;
+
+	color: #ffffff;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: calc(32 / 24 * 100%);
+	letter-spacing: 0.1px;
+
+	@media (max-width: 900px) {
+		max-width: 100%;
+		flex: 1 1 100%;
+		text-align: center;
+
+		margin-bottom: 10px;
+	}
+
+	@media (max-width: 600px) {
+		font-size: 20px;
+	}
+}
+
+.subscribe__form {
+	flex: 0 1 50%;
+	display: flex;
+	align-items: center;
+
+	@media (max-width: 900px) {
+		flex: 1 1 100%;
+	}
+}
+
+.subscribe__input {
+	flex: 1 1 auto;
+	width: 100%; //! чтобы поле адаптировалось. Иначе при самом маленьком экране немного не влезает
+	min-height: 58px;
+	background: #f9f9f9;
+	border: 1px solid #e6e6e6;
+	border-radius: 5px 0px 0px 5px;
+
+	color: #737373;
+	letter-spacing: 0.2px;
+	line-height: calc(28 / 14 * 100%);
+
+	padding: 0px 5px 0px 20px; //! 5px - отступ безопасности
+}
+
+.subscribe__button {
+	min-height: 58px;
+	background: #ff7b47;
+	border: 1px solid #e6e6e6;
+	border-radius: 0px 5px 5px 0px;
+
+	color: #ffffff;
+	letter-spacing: 0.2px;
+	line-height: calc(28 / 14 * 100%);
+
+	padding: 0px 22.5px;
+
+	transition: all 0.3s ease 0s;
+	cursor: pointer; //! на всякий случай - в хроме и так появляется рука над кнопкой
+
+	&:hover {
+		background-color: darken(#ff7b47, 30%);
+	}
+}
+
+//======== getintouch ====================================================================
+
+.getintouch {
+	padding: 80px 0px 148px 0px;
+
+	@media (max-width: 1046px) {
+		padding: 80px 0px 80px 0px;
+	}
+}
+
+.getintouch__container {
+}
+
+.getintouch__body {
+	margin: 0px 32.5px;
+}
+
+.getintouch__title-block {
+	margin: 0px 0px 110px 0px; //! 110px до белой карточки, 80рх до карточки при ховере
+
+	@media (max-width: 1046px) {
+		margin: 0px 0px 60px 0px;
+	}
+
+	// @media (max-width: 500px) {
+	// 	margin: 0px 0px 40px 0px;
+	// }
+}
+
+.getintouch__row {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	@media (max-width: 767px) {
+		flex-wrap: wrap;
+	}
+}
+
+.getintouch__column {
+	flex: 0 1 33.333%;
+
+	@media (max-width: 767px) {
+		flex: 0 1 50%;
+
+		&:not(:last-child) {
+			margin-bottom: 40px;
+		}
+	}
+}
+
+.getintouch__item {
+}
+
+.item-getintouch {
+	background: #ffffff;
+
+	display: flex;
+	flex-direction: column;
+	// align-items: center; //! с этими параметрами пропадает иконка-бэкграунд, а без них растягивается кнопка
+	justify-content: center;
+	text-align: center;
+
+	padding: 50px 15px; //! 15px - отступы безопасности
+
+	& > *:not(:last-child) {
+		margin: 0px 0px 15px 0px;
+	}
+
+	transition: all 0.3s ease 0s;
+
+	&:hover {
+		padding: 80px 15px;
+		margin: -30px 0px;
+		background: #252b42;
+		color: #ffffff;
+
+		.item-getintouch__icon_call {
+			background-image: url(/img/getintouch/icon_call_w.svg);
+			background-repeat: no-repeat;
+			background-position: 50% 0;
+		}
+
+		.item-getintouch__icon_adress {
+			background-image: url(/img/getintouch/icon_adress_w.svg);
+			background-repeat: no-repeat;
+			background-position: 50% 0;
+		}
+
+		.item-getintouch__icon_write {
+			background-image: url(/img/getintouch/icon_write_w.svg);
+			background-repeat: no-repeat;
+			background-position: 50% 0;
+		}
+
+		@media (max-width: 767px) {
+			margin: 0px;
+		}
+	}
+
+	@media (max-width: 767px) {
+		padding: 0px 15px; //! 15px - отступы безопасности
+	}
+}
+
+.item-getintouch__icon {
+	min-height: 72px;
+}
+
+.item-getintouch__icon_call {
+	background-image: url(/img/getintouch/icon_call.svg);
+	background-repeat: no-repeat;
+	background-position: 50% 0;
+}
+
+.item-getintouch__icon_adress {
+	background-image: url(/img/getintouch/icon_adress.svg);
+	background-repeat: no-repeat;
+	background-position: 50% 0;
+}
+
+.item-getintouch__icon_write {
+	background-image: url(/img/getintouch/icon_write.svg);
+	background-repeat: no-repeat;
+	background-position: 50% 0;
+}
+
+.item-getintouch__text-emails {
+	font-weight: 600;
+	line-height: calc(24 / 14 * 100%);
+	letter-spacing: 0.2px;
+}
+
+.item-getintouch__email {
+}
+
+.item-getintouch__link {
+	color: inherit;
+}
+
+.item-getintouch__label {
+	font-weight: 700;
+	font-size: 16px;
+	line-height: calc(24 / 16 * 100%);
+	letter-spacing: 0.1px;
+}
+
+.item-getintouch__wrap-button {
+	//! пришлось сделать доп.оболочку, т.к. нельзя написать align-items: center; в item-getintouch
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.item-getintouch__button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+
+	color: #ff7b47;
+	font-weight: 600;
+	line-height: calc(24 / 14 * 100%);
+	letter-spacing: 0.2px;
+
+	border: 1px solid #ff7b47;
+	border-radius: 5px;
+
+	min-height: 44px;
+	padding: 5px 20px; //! 5px- отступы безопасности
+
+	transition: all 0.3s ease 0s;
+	cursor: pointer; //! на всякий случай - в хроме и так появляется рука над кнопкой
+
+	&:hover {
+		background-color: #ff7b47;
+		color: #ffffff;
+	}
+}
+
+//======== contact ==================================================================
+
+.contact {
+	padding: 40px 0px;
+}
+
+.contact__container {
+}
+
+.contact__row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	@media (max-width: 767px) {
+		flex-direction: column;
+		text-align: center;
+
+		margin: 0px 72px; //! чтобы кнопка была такой же ширины, как и ФОРМА subscribe
+	}
+
+	@media (max-width: 600px) {
+		margin: 0px 30px; //! чтобы кнопка была такой же ширины, как и ФОРМА subscribe
+		// padding: 30px 30px 30px 30px;
+		// margin: 20px 0px 0px 0px;
+	}
+}
+
+.contact__words {
+	& > *:not(:last-child) {
+		margin: 0px 0px 10px 0px;
+	}
+
+	@media (max-width: 767px) {
+		margin-bottom: 10px;
+	}
+}
+
+.contact__title {
+	font-weight: 700;
+	font-size: 24px;
+	line-height: calc(32 / 24 * 100%);
+	letter-spacing: 0.1px;
+
+	@media (max-width: 600px) {
+		font-size: 20px;
+	}
+}
+
+.contact__text {
+	color: #737373;
+	line-height: calc(20 / 14 * 100%);
+	letter-spacing: 0.2px;
+}
+
+.contact__button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+
+	min-height: 58px;
+	padding: 5px 40px; //! 5px - отступы безопасности
+
+	background: #ff7b47;
+	border-radius: 5px;
+
+	color: #ffffff;
+	font-weight: 700;
+	line-height: calc(28 / 14 * 100%);
+	letter-spacing: 0.2px;
+
+	margin: 5px 36.5px; //! 5px - отступы безопасности
+
+	transition: background-color 0.3s ease 0s;
+
+	&:hover {
+		background-color: darken(#ff7b47, 30%);
+	}
+
+	@media (max-width: 767px) {
+		min-width: 100%;
+	}
+}
+
+.contact__link {
+	color: inherit;
+}
+
+//====  ================================================================================
+
+//================================================================================================
+
+// Подключение footer
+@import "_footer";

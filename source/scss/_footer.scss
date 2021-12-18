@@ -1,0 +1,198 @@
+.footer {
+}
+
+// -------- footer__top -------------
+.footer__top {
+}
+
+.top-footer {
+    background: #17213c;
+    color: #ffffff;
+}
+
+.top-footer__container {
+}
+
+.top-footer__row {
+    padding: 30px 0px 50px 0px; //! отступ был 50рх верх и низ, сделала тут верх 30рх плюс в колонках по 20рх
+    //! это нужно для того, чтобы при врапе были отступы между колонками сверху и снизу
+    margin: 0px -15px; //! растяжение рамок по бокам для отступов между колонками
+
+    display: flex;
+    justify-content: center;
+
+    @media (max-width: 900px) {
+        padding: 0px 0px 20px 0px;
+
+        flex-wrap: wrap;
+    }
+
+    // @media (max-width: 767px) {
+    //     text-align: center;
+    // }
+}
+
+.top-footer__column {
+    flex: 0 1 16.667%;
+
+    &:last-child {
+        flex: 0 1 33.334%;
+    }
+
+    padding: 20px 15px 0px 15px; //! 15px - отступы между колонками (работают с отриц.мэрджином, заданным top-footer__row)
+
+    @media (max-width: 900px) {
+        flex: 0 1 25%;
+
+        &:last-child {
+            flex: 0 1 50%;
+        }
+    }
+
+    @media (max-width: 767px) {
+        flex: 0 1 50%;
+
+        &:last-child {
+            flex: 0 1 100%;
+        }
+    }
+}
+
+.top-footer__item {
+}
+
+.top-footer__title {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: calc(24 / 16 * 100%);
+    letter-spacing: 0.1px;
+
+    margin: 0px 0px 20px 0px;
+
+    @media (max-width: 900px) {
+        margin: 0px 0px 10px 0px;
+    }
+}
+
+.top-footer__menu {
+}
+
+.menu-top-footer {
+}
+
+.menu-top-footer__list {
+    & > *:not(:last-child) {
+        margin: 0px 0px 10px 0px;
+
+        @media (max-width: 900px) {
+            margin: 0px 0px 5px 0px;
+        }
+    }
+}
+
+.menu-top-footer__element {
+    font-weight: 600;
+    line-height: calc(24 / 14 * 100%);
+    letter-spacing: 0.2px;
+}
+
+.menu-top-footer__link {
+    color: inherit;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// ----- last column в footer__top -----
+
+.menu-top-footer__element_call {
+    min-height: 30px;
+    padding: 0px 0px 0px 33px;
+
+    background-image: url(/img/contact/icon_call.svg);
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+}
+
+.menu-top-footer__element_adress {
+    min-height: 30px;
+    padding: 0px 0px 0px 33px;
+
+    background-image: url(/img/contact/icon_adress.svg);
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+}
+
+.menu-top-footer__element_write {
+    min-height: 30px;
+    padding: 0px 0px 0px 33px;
+
+    background-image: url(/img/contact/icon_write.svg);
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+}
+
+// ------ footer__bottom -----------------------
+
+.footer__bottom {
+}
+
+.bottom-footer {
+}
+
+.bottom-footer__container {
+}
+
+.bottom-footer__row {
+    padding: 25px 0px;
+
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 767px) {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+.bottom-footer__text {
+    color: #737373;
+    font-weight: 600;
+    line-height: calc(24 / 14 * 100%);
+    letter-spacing: 0.2px;
+
+    @media (max-width: 767px) {
+        &:not(:last-child) {
+            margin: 0px 0px 10px 0px;
+        }
+    }
+}
+
+.bottom-footer__social {
+}
+
+.social-bottom {
+}
+
+.social-bottom__row {
+    padding: 0px 40px;
+
+    display: flex;
+    align-items: center;
+}
+
+.social-bottom__icon-link {
+    flex: 0 1 25%;
+
+    &:not(:last-child) {
+        margin: 0px 20px 0px 0px;
+    }
+
+    cursor: pointer;
+}
+
+.social-bottom__img {
+}
